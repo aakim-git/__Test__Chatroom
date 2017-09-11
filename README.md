@@ -1,0 +1,2 @@
+# thingroom
+a simple chatroom
