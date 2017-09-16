@@ -1,0 +1,91 @@
+* {
+    padding: 0px;
+    margin: 0px
+}
+
+body{
+ font: 12px "Lucida Grande", Sans-Serif;
+ background: linen;
+}
+
+
+
+h2{
+ position: absolute;
+ color: #fa9f00;
+ font: 30px Helvetica, Sans-Serif;
+ margin: 0 0 10px 10px; 
+}
+
+
+#page_wrap{
+ width: 100%;
+ margin: 30px auto;
+ position: relative; 
+}
+
+
+
+#name_area{
+ top: 0; right: 0;
+ color: black;
+ font: 16px "Lucida Grande", Sans-Serif;
+ text-align: right; 
+ margin: 0 10px 0 0;
+}
+
+
+#chat{
+float: right;
+height: 85vh;
+width: 60%;
+border: 1px solid #eee;
+ margin: 30px 15px 0 0; 
+}
+
+
+#chat_area{
+ float: right;
+ height: 400px;
+ width: 70%;
+ overflow: auto;
+ border: 1px solid #666;
+ padding: 10px;
+ background: white;
+}
+
+
+#chat_area > p{
+  padding: 5px;
+  border-bottom: 1px solid #ccc; 
+}
+
+
+
+#send_message_area{
+ float: right;
+ width: 80%;
+ padding-top: 10px;
+ font-size: 14px; 
+}
+
+
+#sendie{
+ border: 3px solid #999;
+ width: 100%;
+ height: 100px;
+ padding: 5px;
+ font: 12px "Lucida Grande", Sans-Serif;
+ float: right; 
+}
+
+#menu{
+ border: 1px solid black;
+ float: left;
+ width: 35%;
+ height: 85vh;
+ background:white;
+ margin: 30px 0 0 10px;
+
+}
+
