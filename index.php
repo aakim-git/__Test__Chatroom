@@ -1,23 +1,32 @@
 <html>
-
-<head>
-  <body>
-	<!-- <body onload="setInterval('chat_update()', 1000)"> -->
+<body>
+  <head>
+  	<link rel = "stylesheet" type = "text/css" href = "style.css" />
     <title>Chat</title>
+
     <div id="page_wrap">
-        <h2>jQuery/PHP Chat</h2>
-        <p id="name_area">NAME AREA</p>
-        <div id="chat_wrap"><div id="chat_area"></div></div>
+      <h2>THE BEST CHAT EVER \o/</h2>
+      <p id="name_area"></p>
+
+	  <div id = "chat">
+        <div id="chat_area"></div>
         <form id="send_message_area">
-            <p>Your message: </p>
             <textarea id="sendie" maxlength = '100' ></textarea>
         </form>
-    </div>
+	  </div>
+	  
+	  <div id = "menu"> 
+		<button> Public </button>
+		<button> Private </button>
+		<button> Create Room </button>
+		<div id = "rooms"></div>
+	  </div>
+   </div>
+
 
 	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
     <script type="text/javascript" src="chat.js"></script>
 	<script type="text/javascript">
-	    do_nothing();
 		chat_getLines();
 
 	    // ask for name
@@ -28,7 +37,6 @@
     	// start chat
 		document.getElementById("sendie").addEventListener("keyup", function(event){
 		  if(event.keyCode == 13){
-		    console.log("ENTER pressed");
 			var text = $(this).val();
 		    $(this).val("");
 			chat_send(text, name);
@@ -36,8 +44,7 @@
 		});
 
     </script>
-  </body>
-</head>
 
-
+  </head>
+</body>
 </html>

@@ -3,7 +3,6 @@ var cur_lines;
 
 //sets cur_lines to the current number of lines. 
 function chat_getLines() {
-    //console.log("CHAT_LINES DETECTED");
   $.ajax({
     type: "POST",
     url: "process.php",
@@ -27,7 +26,6 @@ function chat_getLines() {
 // checks for changes in chat.txt
 // if change, append the new lines into message board. 
 function chat_update() {
-    //console.log("CHAT_update DETECTED");
     var temp = cur_lines;
     chat_getLines();
     if (temp != cur_lines) {
@@ -42,8 +40,7 @@ function chat_update() {
             dataType: "json",
             success: function (data) {
                 if (data.text) {
-                    for (var i = 0; i < cur_lines - temp; i++) {
-                        console.log(data.text[i]);
+                    for (var i = 0; i < cur_lines - temp - 1; i++) {
                         var new_message = document.createElement('p');
                         new_message.appendChild(document.createTextNode(data.text[i]));
                         document.getElementById('chat_area').appendChild(new_message);
@@ -61,10 +58,8 @@ function chat_update() {
 
 // append message into chat.txt      
 // append message into message board. 
-function chat_send(message, nickname)
-{
+function chat_send(message, nickname){
     // maybe after a certain amount of time, you can start deleting old messages. 
-    //console.log("CHAT_SEND DETECTED");
      $.ajax({
 		   type: "POST",
 		   url: "process.php",
@@ -77,23 +72,8 @@ function chat_send(message, nickname)
 		   success: function () {
 		       chat_update();
 		   },
-         error: function(err){
+           error: function(err){
              console.log(err.responseText);
-     }
-		});
-}
-
-function do_nothing() {
-    console.log("do nothing entered");
-    $.ajax({
-        type: "POST",
-        url: "process.php",
-        data: {'thing': 'aaaa' },
-        success: function () {
-            console.log("ajax works");
-        },
-        error: function(){
-            console.log("not working");
-    }
-    })
+           }
+	});
 }
