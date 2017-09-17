@@ -1,4 +1,4 @@
-var file = "chat.txt";
+var file = "global.txt";
 var cur_lines;
 
 //sets cur_lines to the current number of lines. 
