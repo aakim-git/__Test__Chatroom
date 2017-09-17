@@ -16,18 +16,22 @@
 	  </div>
 	  
 	  <div id = "menu"> 
-		<button> Public </button>
-		<button> Private </button>
-		<button> Create Room </button>
+		<button id = "public"> Public </button>
+		<button id = "private"> Private </button>
+		<button id = "create_room"> Create Room </button>
 		<div id = "rooms"></div>
 	  </div>
    </div>
 
-
-	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
-    <script type="text/javascript" src="chat.js"></script>
-	<script type="text/javascript">
+   	<script type = "text/javascript" src = "http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+    <script type = "text/javascript" src = "chat.js"></script>
+   	<script type = "text/javascript" src = "menu.js"> </script>
+	<script type = "text/javascript">
+		load_rooms("public");
 		chat_getLines();
+		document.getElementById("public").addEventListener("click", function(){ load_rooms("public"); });
+		document.getElementById("private").addEventListener("click", function(){ load_rooms("private"); });
+		document.getElementById("create_room").addEventListener("click", function(){ load_create(); });
 
 	    // ask for name
         var name = prompt("Enter your chat name:", "('_>')7");
