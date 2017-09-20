@@ -31,9 +31,19 @@ h2{
  color: black;
  font: 16px "Lucida Grande", Sans-Serif;
  text-align: right; 
- margin: 0 10px 0 0;
+ margin: 0 50px 0 0;
+  position:absolute;
 }
 
+
+#room_name{
+  font: 16px "Lucida Grande", Sans-Serif;
+  top:0; 
+  right: 20 px;
+  text-align: right;
+  margin: 0 200px 0 0;
+  
+}
 
 #chat{
 float: right;
@@ -45,7 +55,7 @@ border: 1px solid #eee;
 
 
 #chat_area{
- float: right;
+ float: center;
  height: 400px;
  width: 70%;
  overflow: auto;
@@ -57,14 +67,15 @@ border: 1px solid #eee;
 
 #chat_area > p{
   padding: 5px;
+  font: 16px Helvetica, Sans-Serif;
   border-bottom: 1px solid #ccc; 
 }
 
 
 
 #send_message_area{
- float: right;
- width: 80%;
+ float: center;
+ width: 73%;
  padding-top: 10px;
  font-size: 14px; 
 }
@@ -75,17 +86,54 @@ border: 1px solid #eee;
  width: 100%;
  height: 100px;
  padding: 5px;
- font: 12px "Lucida Grande", Sans-Serif;
+ font: 14px "Lucida Grande", Sans-Serif;
  float: right; 
 }
 
 #menu{
  border: 1px solid black;
- float: left;
- width: 35%;
+ float: center;
+ width: 24%;
  height: 85vh;
  background:white;
- margin: 30px 0 0 10px;
+ margin: 30px 0 0 50px;
 
+}
+
+#rooms > p{
+    border-bottom: 1px solid #ccc;
+    border-top: 1px solid #ccc; 
+    text-align: center; 
+    font: 18px "Segoe UI", Frutiger, "Frutiger Linotype", "Dejavu Sans", "Helvetica Neue", Arial, sans-serif;
+    margin: 2px 0 2px 4px;
+}
+
+#rooms > p:hover{
+  background-color: #a89ba8;
+}
+
+#buttons > button{
+  -moz-box-shadow:inset 0px 34px 0px -15px #b54b3a;
+	-webkit-box-shadow:inset 0px 34px 0px -15px #b54b3a;
+	box-shadow:inset 0px 34px 0px -15px #b54b3a;
+	background-color:#a73f2d;
+	border:1px solid #241d13;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:Arial;
+	font-size:15px;
+	font-weight:bold;
+	padding:6px 17px;
+	text-decoration:none;
+	text-shadow:0px -1px 0px #7a2a1d;
+}
+
+#buttons > button:hover {
+	background-color:#9e200f;
+}
+#buttons > button:active {
+	position:relative;
+	top:1px;
 }
 
