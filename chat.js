@@ -1,4 +1,4 @@
-var file = "global.txt";
+var file = "";
 var cur_lines;
 
 //sets cur_lines to the current number of lines. 
@@ -40,7 +40,8 @@ function chat_update() {
             dataType: "json",
             success: function (data) {
                 if (data.text) {
-                    for (var i = 0; i < cur_lines - temp - 1; i++) {
+                    // CHECK IF I=I+2 WORKS IN NETWORKED ENVIRONMENT
+                    for (var i = 0; i < cur_lines - temp - 1; i=i+2) {
                         var new_message = document.createElement('p');
                         new_message.appendChild(document.createTextNode(data.text[i]));
                         document.getElementById('chat_area').appendChild(new_message);
@@ -58,8 +59,7 @@ function chat_update() {
 
 // append message into chat.txt      
 // append message into message board. 
-function chat_send(message, nickname){
-    // maybe after a certain amount of time, you can start deleting old messages. 
+function chat_send(message, nickname){ 
      $.ajax({
 		   type: "POST",
 		   url: "process.php",
@@ -76,4 +76,30 @@ function chat_send(message, nickname){
              console.log(err.responseText);
            }
 	});
+}
+
+function chat_load5() {
+    $.ajax({
+        type: "POST",
+        url: "process.php",
+        data: {
+            'function': 'chat_load5',
+            'file': file
+        },
+        dataType: "json",
+        success: function (data) {
+            var i = data.num_lines - 10;
+            if (i < 1) { i = 0; }
+            for ( i ; i < data.num_lines; i=i+2) {
+                console.log(data.text[i]);
+                var new_message = document.createElement('p');
+                new_message.appendChild(document.createTextNode(data.text[i]));
+                document.getElementById('chat_area').appendChild(new_message); 
+
+            }
+        },
+        error: function (err) {
+            console.log(err.responseText);
+        }
+    });
 }

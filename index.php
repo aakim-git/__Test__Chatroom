@@ -6,6 +6,7 @@
 
     <div id="page_wrap">
       <h2>THE BEST CHAT EVER \o/</h2>
+	  <p id="room_name"></p>
       <p id="name_area"></p>
 
 	  <div id = "chat">
@@ -16,9 +17,11 @@
 	  </div>
 	  
 	  <div id = "menu"> 
-		<button id = "public"> Public </button>
-		<button id = "private"> Private </button>
-		<button id = "create_room"> Create Room </button>
+	    <div id = buttons>
+		  <button id = "public"> Public </button>
+		  <button id = "private"> Private </button>
+		  <button id = "create_room"> Create Room </button>
+		</div>
 		<div id = "rooms"></div>
 	  </div>
    </div>
@@ -27,11 +30,14 @@
     <script type = "text/javascript" src = "chat.js"></script>
    	<script type = "text/javascript" src = "menu.js"> </script>
 	<script type = "text/javascript">
-		load_rooms("public");
+		enter_room("global", false);
 		chat_getLines();
+		document.getElementsByTagName("Body")[0].addEventListener("load", setInterval(function(){ chat_update(); }, 1000));
 		document.getElementById("public").addEventListener("click", function(){ load_rooms("public"); });
 		document.getElementById("private").addEventListener("click", function(){ load_rooms("private"); });
 		document.getElementById("create_room").addEventListener("click", function(){ load_create(); });
+		window.onbeforeunload = function(e){ exit_page(); return null; };
+
 
 	    // ask for name
         var name = prompt("Enter your chat name:", "('_>')7");
